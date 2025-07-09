@@ -1,0 +1,66 @@
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hesap Makinesi</title>
+</head>
+<body>
+    <form action="" align="center">
+        <table align="center">
+            <tr>
+                <td colspan="2" style="font-size: 24px">Sayı 1</td>
+                <td colspan="2"><input style="font-size: 24px" type="text" id="s1"></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="font-size: 24px">Sayı 2</td>
+                <td colspan="2"><input style="font-size: 24px" type="text" id="s2"></td>
+            </tr>
+            <tr>
+                <td colspan="2" >
+                    <button style="font-size: 24px" type="button" onclick="yaz('topla')">+</button>
+                    <button style="font-size: 24px" type="button" onclick="yaz('cikar')">-</button>
+                    <button style="font-size: 24px" type="button" onclick="yaz('carp')">*</button>
+                    <button style="font-size: 24px" type="button" onclick="yaz('bol')">/</button>
+
+                </td>
+            </tr>
+            <td colspan="2">
+                <p style="font-size: 30px"> Sonuç: <span id="sonuc"></span></p>
+            </td>
+        </table>
+    </form>
+    <script>
+        
+        function topla(a,b){
+            return Number(a)+Number(b);
+        }
+        function cikar(a,b){
+            return Number(a)-Number(b);
+        }
+        function carp(a,b){
+            return Number(a)*Number(b);
+        }
+        function bol(a,b){
+            return Number(b)!==0 ? Number(a) / Number(b):"Sıfıra bolunemez";
+        }
+        function yaz(x){
+            var a=document.getElementById("s1").value;
+            var b=document.getElementById("s2").value;
+            var sonuc;
+            if (x=="topla"){
+                document.getElementById("sonuc").innerHTML=topla(a,b);
+            }
+            else if(x=="cikar"){
+                document.getElementById("sonuc").innerHTML=cikar(a,b);
+            }
+            else if(x=="carp"){
+                document.getElementById("sonuc").innerHTML=carp(a,b);
+            }
+            else if(x=="bol"){
+                document.getElementById("sonuc").innerHTML=bol(a,b);
+            }
+        }
+        yaz();
+    </script>
+</body>
+</html>
